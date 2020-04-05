@@ -26,8 +26,9 @@ RUN pecl install redis-$PHPREDIS_VERSION \
 
 # install composer new
 # https://getcomposer.org/installer | https://install.phpcomposer.com/installer
- RUN curl https://getcomposer.org/composer.phar -d /usr/local/bin/composr \
-     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+ RUN curl https://getcomposer.org/composer.phar -o /usr/local/bin/composer \
+     && chmod a+x /usr/local/bin/composer \
+     && composer config -g repo.packagist composer https?://repo.packagist.org
 
 RUN apt-get install -y git
 
